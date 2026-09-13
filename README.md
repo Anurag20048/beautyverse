@@ -1,27 +1,51 @@
 # BeautyVerse
 
-> A full-stack BeautyTech platform for personalized beauty discovery, salon services, wellness consultations, bookings, and provider operations.
+AI-assisted beauty discovery, personalization, salon services, consultations, and booking in one full-stack web platform.
 
 [![CI](https://github.com/Anurag20048/beautyverse/actions/workflows/ci.yml/badge.svg)](https://github.com/Anurag20048/beautyverse/actions/workflows/ci.yml)
 
-## Overview
+## 🚀 Overview
 
-**BeautyVerse** is a web application designed to bring beauty and wellness journeys into one platform. It connects customers with beauty service providers and consultation workflows while adding AI-assisted personalization features.
+BeautyVerse is a full-stack BeautyTech platform designed to bring beauty discovery, personalized recommendations, salon services, consultations, and booking workflows into one experience. It is built for customers looking for convenient beauty and wellness services, as well as salons and professionals who need dedicated workflows to manage services and bookings.
 
-The project is built as a practical full-stack application rather than a static UI demo. It includes a Django backend, domain-based applications, role-aware portals, booking and payment models, notifications, analytics, automated tests, CI configuration, environment-based settings, and deployment support.
+The platform combines a Django backend with responsive web interfaces, role-based portals, AI-assisted features, service discovery, booking workflows, notifications, payments, and analytics.
 
-## Key features
+## 📸 Demo / Screenshot
 
-- Customer authentication, dashboard, profile and Beauty Passport
-- Camera/image-based AI skin scan workflow
-- AI assistant with deterministic local fallback
-- Salon discovery, services, availability and booking flow
-- Verified doctor discovery and consultation workflow
-- Role-based customer, salon, doctor and admin portals
-- Django tests, migration validation and GitHub Actions CI
+The repository contains the complete application source and deployment configuration.
+
+**Local application:** `http://127.0.0.1:8000/`
+
+## ✨ Features
+
+- Customer registration, authentication, dashboard, profile, and Beauty Passport
+- AI-assisted skin scan workflow using camera/image input
+- AI beauty assistant for personalized guidance
+- Salon and beauty-service discovery
+- Service availability and booking workflows
+- Doctor discovery and consultation workflow
+- Role-based portals for customers, salons, doctors, and administrators
+- Provider service and booking management
+- Notifications and follow-up workflows
+- Payment domain and transaction handling
+- Analytics and reporting components
+- Automated tests and GitHub Actions CI
 - Docker and Render deployment configuration
 
-## Run locally on Windows
+## 🛠️ Tech Stack
+
+- **Backend:** Python, Django, Django REST Framework
+- **Frontend:** HTML, CSS, JavaScript, Django Templates
+- **Database:** PostgreSQL
+- **Caching / infrastructure:** Redis
+- **AI:** OpenAI API integration
+- **Testing:** pytest, Django test framework
+- **DevOps:** Docker, Docker Compose, GitHub Actions
+- **Deployment:** Render
+
+## 📦 Installation
+
+### Windows
 
 ```powershell
 git clone https://github.com/Anurag20048/beautyverse.git
@@ -31,111 +55,152 @@ venv\Scripts\activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python manage.py check
-python manage.py makemigrations --noinput
-python manage.py makemigrations --check
 python manage.py migrate --noinput
-python -m pytest -q
-python manage.py seed_demo_data
-python manage.py runserver
 ```
 
-Open **http://127.0.0.1:8000/**
-
-### One-command setup
-
-From `src/backend`:
+For the project setup scripts:
 
 ```powershell
 setup_windows.bat
-verify_local.bat
 ```
 
-> Install from `backend/requirements.txt`. The `backend/requirements/` folder contains dependency splits and should not be passed directly to `pip -r`.
+Create your local environment file from the provided example configuration before enabling integrations that require credentials.
 
-## Project structure
+## ▶️ Usage
+
+Start the Django development server:
+
+```powershell
+cd src\backend
+python manage.py runserver
+```
+
+Open:
 
 ```text
-src/
-├── backend/                 # Django application
-│   ├── apps/                # Domain applications
-│   ├── config/              # Settings, URLs, ASGI/WSGI
-│   ├── templates/           # Web UI
-│   ├── static/              # CSS, JS, service worker, favicon
-│   ├── requirements/        # Split dependency files
-│   ├── requirements.txt
-│   ├── manage.py
-│   ├── setup_windows.bat
-│   └── verify_local.bat
-├── frontend/
-├── docs/
-├── infra/docker/
-├── .github/workflows/
-├── docker-compose.yml
-├── render.yaml
-└── build.sh
+http://127.0.0.1:8000/
 ```
 
-## Architecture
+Useful application routes include:
+
+```text
+/                     Home
+/login/               Authentication
+/dashboard/           Customer dashboard
+/scan/                AI skin scan
+/assistant/           AI beauty assistant
+/passport/            Beauty Passport
+/services/            Service discovery
+/bookings/            Booking management
+/profile/             Profile management
+/salon-portal/        Salon portal
+/doctor-portal/       Doctor portal
+/admin-portal/        Admin portal
+```
+
+## 📁 Project Structure
+
+```text
+beautyverse/
+├── src/
+│   ├── backend/
+│   │   ├── apps/              # Business-domain Django applications
+│   │   ├── config/            # Settings, URLs, ASGI and WSGI
+│   │   ├── templates/         # Application UI
+│   │   ├── static/            # CSS, JavaScript and static assets
+│   │   ├── requirements/      # Split dependency requirements
+│   │   ├── manage.py
+│   │   ├── requirements.txt
+│   │   ├── setup_windows.bat
+│   │   └── verify_local.bat
+│   ├── frontend/
+│   ├── docs/
+│   └── infra/
+├── .github/
+│   └── workflows/             # CI automation
+├── docker-compose.yml
+├── render.yaml
+├── build.sh
+└── README.md
+```
+
+## 🧩 Architecture
 
 ```text
 Browser
-  |
-  v
-Django templates + static UI
-  |
-  +-- Customer portal
-  +-- Salon portal
-  +-- Doctor portal
-  +-- Admin portal
-  |
-  v
-Django application layer
-  |
-  +-- users
-  +-- salons
-  +-- doctors
-  +-- bookings
-  +-- AI scan
-  +-- Beauty Passport
-  |
-  +-- PostgreSQL
-  +-- Redis / cache
-  +-- Optional AI provider
+   |
+   v
+Django Templates + Static UI
+   |
+   +--> Customer Portal
+   +--> Salon Portal
+   +--> Doctor Portal
+   +--> Admin Portal
+   |
+   v
+Django Application Layer
+   |
+   +--> Users
+   +--> Salons & Services
+   +--> Bookings
+   +--> Doctors & Consultations
+   +--> AI Features
+   +--> Beauty Passport
+   +--> Payments
+   +--> Notifications
+   +--> Analytics
+   |
+   +--> PostgreSQL
+   +--> Redis
+   +--> External AI Services
 ```
 
-## Important routes
+## 🔧 Configuration
 
-`/` · `/login/` · `/dashboard/` · `/scan/` · `/assistant/` · `/passport/` · `/services/` · `/bookings/` · `/profile/` · `/doctor-portal/` · `/salon-portal/` · `/admin-portal/`
+Create the local environment configuration from the included example file and add only the credentials required for the services you enable.
 
-## Deployment
+```text
+DJANGO_SECRET_KEY=your_secret_key
+DJANGO_DEBUG=True
+DATABASE_URL=your_database_url
+REDIS_URL=your_redis_url
+OPENAI_API_KEY=your_api_key
+```
 
-Included: `render.yaml`, Dockerfiles, `docker-compose.yml`, `build.sh`, production requirements, CI and release validation documentation.
+Production credentials should be supplied through the deployment environment rather than committed to the repository.
 
-A public production deployment still requires environment-specific credentials and managed services such as PostgreSQL, Redis, SMS/email and an AI provider.
+## 🧪 Running Tests
 
-## Verification
+Run Django validation and the automated test suite from the backend directory:
 
-See `docs/FINAL_VALIDATION.md`, `docs/TESTING_AND_RELEASE.md`, `docs/RELEASE_GATES.md` and `backend/VERIFY_RELEASE.md`.
+```powershell
+cd src\backend
+python manage.py check
+python manage.py makemigrations --check
+python manage.py migrate --check
+python -m pytest -q
+```
 
-Full execution of the release checks requires package/network access and any external services needed by the chosen configuration.
+The repository also includes release and validation documentation under `docs/` and the backend verification files.
 
-## Security note
+## 🗺️ Roadmap
 
-No real third-party credentials are stored in the repository. Production secrets are expected through environment variables. The AI scan workflow is intended for consumer-level visible observations, not clinical diagnosis.
+- [ ] Expand AI-assisted personalization and recommendation capabilities
+- [ ] Extend provider-side service management and analytics
+- [ ] Add deeper notification and appointment automation
+- [ ] Expand production integrations and deployment environments
 
-## Professional project description
+## 🤝 Contributing
 
-**BeautyVerse is a full-stack BeautyTech platform built with Django that combines beauty-service discovery, personalized customer experiences, AI-assisted skin analysis, salon booking, doctor consultation workflows, provider portals, notifications, payments, and analytics. The project uses a domain-oriented backend structure with role-based access control, service-layer business logic, automated testing, CI validation, environment-based configuration, and Docker/Render deployment support.**
+Pull requests and focused improvements are welcome. For larger changes, open an issue first to discuss the proposed direction.
 
-## Resume project entry
+## 📄 License
 
-**BeautyVerse | Full-Stack BeautyTech Platform**
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Developed a Django-based BeautyTech platform integrating beauty-service discovery, personalized customer workflows, AI-assisted skin analysis, salon booking, consultation workflows, provider portals, notifications, payments, and analytics. Implemented role-based access control, domain-oriented business logic, automated testing, CI validation, environment-based configuration, and container/cloud deployment support.
+## 👤 Author
 
-**Tech:** Python, Django, Django REST Framework, PostgreSQL, Redis, JavaScript, HTML/CSS, Docker, GitHub Actions, Render, pytest, OpenAI API
+**Anurag Pareek**
 
-## Author
-
-**Anurag20048**  
-https://github.com/Anurag20048
+- GitHub: [@Anurag20048](https://github.com/Anurag20048)
+- Repository: [BeautyVerse](https://github.com/Anurag20048/beautyverse)
