@@ -1,14 +1,14 @@
 # BeautyVerse
 
-### AI-assisted beauty discovery, personalization, bookings, and provider workflows
+> A full-stack BeautyTech platform for personalized beauty discovery, salon services, wellness consultations, bookings, and provider operations.
 
 [![CI](https://github.com/Anurag20048/beautyverse/actions/workflows/ci.yml/badge.svg)](https://github.com/Anurag20048/beautyverse/actions/workflows/ci.yml)
 
-> A portfolio-grade full-stack BeautyTech product built around discovery, AI-assisted analysis, personalization, provider discovery, booking, and follow-up.
+## Overview
 
-## Why this project stands out
+**BeautyVerse** is a web application designed to bring beauty and wellness journeys into one platform. It connects customers with beauty service providers and consultation workflows while adding AI-assisted personalization features.
 
-BeautyVerse is designed as a real product flow rather than a static UI demo. It combines a Django backend, responsive web UI, role-based portals, booking workflows, AI-assisted features, release validation, Docker configuration, and deployment configuration.
+The project is built as a practical full-stack application rather than a static UI demo. It includes a Django backend, domain-based applications, role-aware portals, booking and payment models, notifications, analytics, automated tests, CI configuration, environment-based settings, and deployment support.
 
 ## Key features
 
@@ -123,12 +123,17 @@ Full execution of the release checks requires package/network access and any ext
 
 No real third-party credentials are stored in the repository. Production secrets are expected through environment variables. The AI scan workflow is intended for consumer-level visible observations, not clinical diagnosis.
 
-## Resume-ready project summary
+## Professional project description
 
-**BeautyVerse | Full-Stack BeautyTech Platform**  
-Built a Django-based BeautyTech platform combining customer authentication, AI-assisted skin analysis, personalized recommendations, salon discovery, booking workflows, doctor consultations, provider portals, release validation and cloud deployment configuration. Implemented resilient AI fallbacks, environment-based configuration, automated CI checks, database migration validation and responsive web flows.
+**BeautyVerse is a full-stack BeautyTech platform built with Django that combines beauty-service discovery, personalized customer experiences, AI-assisted skin analysis, salon booking, doctor consultation workflows, provider portals, notifications, payments, and analytics. The project uses a domain-oriented backend structure with role-based access control, service-layer business logic, automated testing, CI validation, environment-based configuration, and Docker/Render deployment support.**
 
-**Stack:** Python, Django, Django REST Framework, PostgreSQL, Redis, HTML, CSS, JavaScript, Docker, GitHub Actions, Render, pytest, OpenAI API integration.
+## Resume project entry
+
+**BeautyVerse | Full-Stack BeautyTech Platform**
+
+Developed a Django-based BeautyTech platform integrating beauty-service discovery, personalized customer workflows, AI-assisted skin analysis, salon booking, consultation workflows, provider portals, notifications, payments, and analytics. Implemented role-based access control, domain-oriented business logic, automated testing, CI validation, environment-based configuration, and container/cloud deployment support.
+
+**Tech:** Python, Django, Django REST Framework, PostgreSQL, Redis, JavaScript, HTML/CSS, Docker, GitHub Actions, Render, pytest, OpenAI API
 
 ## Author
 
